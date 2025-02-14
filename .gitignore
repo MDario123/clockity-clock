@@ -1,0 +1,18 @@
+# environment
+.env
+.env.*
+!.env.development
+
+# artifacts
+dist
+node_modules
+coverage
+junit.xml
+
+# misc
+.vscode
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+npm-debug.log*
+pnpm-debug.log*
