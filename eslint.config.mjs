@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument */
 
-import eslint from "@eslint/js"
-import tseslint from "typescript-eslint"
-import importPlugin from "eslint-plugin-import"
-import reactPlugin from "eslint-plugin-react"
-import reactHooksPlugin from "eslint-plugin-react-hooks"
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
+import importPlugin from "eslint-plugin-import";
+import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
 
 export default tseslint.config(
   {
@@ -65,4 +65,4 @@ export default tseslint.config(
       "import/no-useless-path-segments": "error",
     },
   },
-)
+);
