@@ -17,10 +17,10 @@
   - [ ] Display the current time as an analog clock
 - [ ] Offset context
   - [x] Base context
-  - [ ] Timezone offset controller:
-    - [ ] Select to change the timezone
-    - [ ] Get options for selecting the timezone from "https://www.timeapi.io/api/timezone/availabletimezones"
-    - [ ] Time for the clock is sinchronized with "https://www.timeapi.io/api/time/current/zone?timeZone=XXXXXXX"
+  - [x] Timezone offset controller:
+    - [x] Select to change the timezone
+    - [x] Get options for selecting the timezone from "https://www.timeapi.io/api/timezone/availabletimezones"
+    - [x] Time for the clock is sinchronized with "https://www.timeapi.io/api/time/current/zone?timeZone=XXXXXXX"
   - [x] Manual offset controller:
     - [ ] Display with the current offset
     - [x] Buttons to increase or decrease the time offset
