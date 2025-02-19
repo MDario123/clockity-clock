@@ -15,7 +15,7 @@
     "build": "vite build"
   },
   "imports": {
-    "#shared/*": "./src/shared/*",
+    "#shared/*": "./src/shared/*/index.ts",
     "#design/*": "./src/design/*"
   },
   "dependencies": {

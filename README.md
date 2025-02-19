@@ -13,7 +13,7 @@
 ## Features
 
 - [ ] Clock
-  - [ ] Display the current time as text
+  - [x] Display the current time as text
   - [ ] Display the current time as an analog clock
 - [ ] Offset context
   - [ ] Timezone offset controller:
