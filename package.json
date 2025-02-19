@@ -9,7 +9,7 @@
     "lint-eslint": "eslint .",
     "lint-prettier": "prettier --check .",
     "lint-depcheck": "depcheck .",
-    "test": "vitest",
+    "test": "TZ=UTC vitest",
     "dev": "vite",
     "clean": "rm -rf node_modules/.cache tsconfig.tsbuildinfo dist",
     "build": "vite build"

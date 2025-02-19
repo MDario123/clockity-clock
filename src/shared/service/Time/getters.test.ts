@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { getTimeByTimezone } from "./getters";
+import { getTimeOffsetByTimezone } from "./getters";
+import { Time } from "#shared/Time";
 
 describe("getTimeByTimezone", () => {
   afterEach(() => {
@@ -7,11 +8,11 @@ describe("getTimeByTimezone", () => {
   });
 
   it("should return the current time in the specified timezone", async () => {
-    const timezone = "America/New_York";
+    const timezone = "Europe/Amsterdam";
     const mockTime = {
-      hour: 12,
-      minute: 30,
-      seconds: 59,
+      hour: 17,
+      minute: 3,
+      seconds: 31,
     };
 
     // mock the fetch function
@@ -19,13 +20,16 @@ describe("getTimeByTimezone", () => {
       .spyOn(global, "fetch")
       .mockImplementation(
         vi.fn(() =>
-          Promise.resolve({ json: () => Promise.resolve(mockTime) }),
+          Promise.resolve({ 
+            json: () => Promise.resolve(mockTime),
+            headers: { get: () => "Wed,19 Feb 2025 16:03:31 GMT " },
+          }),
         ) as unknown as typeof fetch,
       );
 
-    const time = await getTimeByTimezone(timezone);
+    const time = await getTimeOffsetByTimezone(timezone);
 
-    expect(time).toEqual(mockTime);
+    expect(time).toEqual(new Time(1, 0, 0));
     expect(f).toHaveBeenCalledTimes(1);
   });
 });

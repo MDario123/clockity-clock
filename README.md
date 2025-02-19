@@ -16,6 +16,7 @@
   - [x] Display the current time as text
   - [ ] Display the current time as an analog clock
 - [ ] Offset context
+  - [x] Base context
   - [ ] Timezone offset controller:
     - [ ] Select to change the timezone
     - [ ] Get options for selecting the timezone from "https://www.timeapi.io/api/timezone/availabletimezones"

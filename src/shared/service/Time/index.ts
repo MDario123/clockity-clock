@@ -1,2 +1,1 @@
-export { getTimeByTimezone } from "./getters";
-export type { Time } from "./types";
+export { getTimeOffsetByTimezone } from "./getters";

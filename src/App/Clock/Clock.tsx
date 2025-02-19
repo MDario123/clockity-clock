@@ -1,22 +1,16 @@
-import { Time } from "#shared/service";
+import { useOffsetContext } from "#shared/OffsetContext";
+import { Time } from "#shared/Time";
 import type { JSX } from "react";
 import { useEffect, useState } from "react";
 
-function parseTime(date: Date): Time {
-  return {
-    hour: date.getHours(),
-    minute: date.getMinutes(),
-    seconds: date.getSeconds(),
-  };
-}
-
 export function Clock(): JSX.Element {
-  const [time, setTime] = useState(parseTime(new Date()));
+  const [currTime, setTime] = useState(Time.fromDate(new Date()));
+  const { manualOffset, timezoneOffset } = useOffsetContext();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const newTime = parseTime(new Date());
-      if (newTime.seconds !== time.seconds) {
+      const newTime = Time.fromDate(new Date());
+      if (newTime.seconds !== currTime.seconds) {
         setTime(newTime);
       }
     }, 50);
@@ -24,7 +18,9 @@ export function Clock(): JSX.Element {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [currTime.seconds]);
+
+  const time = currTime.add(manualOffset).add(timezoneOffset);
 
   return <div>Current time: {`${time.hour}:${time.minute}:${time.seconds}`}</div>;
 }
