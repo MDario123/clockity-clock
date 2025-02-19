@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import styles from "./App.module.css";
+import styles from "./styles.module.css";
 
 function App(): JSX.Element {
   return (
