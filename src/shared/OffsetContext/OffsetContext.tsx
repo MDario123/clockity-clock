@@ -8,13 +8,16 @@ interface ContextData {
 }
 
 interface ContextFull extends ContextData {
-  setManualOffset?: ((arg0: Time) => void) | undefined;
-  setTimezoneOffset?: ((arg0: Time) => void) | undefined;
+  setManualOffset: ((arg0: Time) => void);
+  setTimezoneOffset: ((arg0: Time) => void);
 }
 
 const OffsetContext = createContext<ContextFull>({
   manualOffset: new Time(0, 0, 0),
   timezoneOffset: new Time(0, 0, 0),
+
+  setManualOffset: () => {throw new Error("setManualOffset must be defined")},
+  setTimezoneOffset: () => {throw new Error("setTimezoneOffset must be defined")},
 });
 
 export function OffsetContextProvider({
@@ -54,10 +57,12 @@ export function OffsetContextProvider({
 
 export function useOffsetContext(): ContextFull {
   const context = useContext(OffsetContext);
+
   if (!context.setManualOffset || !context.setTimezoneOffset) {
     throw new Error(
       "useOffsetContext must be used within a ClickiesContextProvider",
     );
   }
+
   return context;
 }

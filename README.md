@@ -21,8 +21,7 @@
     - [ ] Select to change the timezone
     - [ ] Get options for selecting the timezone from "https://www.timeapi.io/api/timezone/availabletimezones"
     - [ ] Time for the clock is sinchronized with "https://www.timeapi.io/api/time/current/zone?timeZone=XXXXXXX"
-  - [ ] Manual offset controller:
+  - [x] Manual offset controller:
     - [ ] Display with the current offset
-    - [ ] Buttons to increase or decrease the time offset
-    - [ ] Buttons to increase or decrease how much the other buttons increase or decrease the time offset
+    - [x] Buttons to increase or decrease the time offset
 - [ ] Use Material UI
