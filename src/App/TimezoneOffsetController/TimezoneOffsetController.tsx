@@ -4,28 +4,16 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useOffsetContext } from "#shared/OffsetContext";
 import { getPossibleTimezones, getTimeOffsetByTimezone } from "#shared/service";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { Typography } from "@mui/material";
+import { ErrorBoundary } from "react-error-boundary";
 
-export function TimezoneOffsetController(): JSX.Element {
+function TimezoneOffsetControllerInternal(): JSX.Element {
   const [timezone, setTimezone] = useState("UTC");
-  const [possibleTimezones, setPossibleTimezones] = useState<string[]>(["UTC"]);
   const { setTimezoneOffset } = useOffsetContext();
-
-  // Fetch possible timezones on first render
-  useEffect(() => {
-    (() => {
-      getPossibleTimezones()
-        .then((timezones) => {
-          setPossibleTimezones(timezones);
-        })
-        .catch((error: unknown) => {
-          // TODO: Proper error handling should be implemented here
-          console.error(error);
-        });
-    })();
-  }, []);
 
   // Every 10 seconds, or when the timezone changes, we update the offset
   useEffect(() => {
@@ -44,6 +32,13 @@ export function TimezoneOffsetController(): JSX.Element {
       clearInterval(interval);
     };
   }, [timezone, setTimezoneOffset]);
+
+  const { data } = useSuspenseQuery({
+    queryKey: ["possibleTimezones"],
+    queryFn: () => getPossibleTimezones().then((timezones) => timezones),
+  });
+
+  const possibleTimezones = data ?? ["UTC"];
 
   return (
     <Box sx={{ minWidth: 200, maxWidth: 200 }}>
@@ -64,5 +59,15 @@ export function TimezoneOffsetController(): JSX.Element {
         </Select>
       </FormControl>
     </Box>
+  );
+}
+
+export function TimezoneOffsetController(): JSX.Element {
+  return (
+    <ErrorBoundary fallback={<Typography>Error</Typography>}>
+      <Suspense fallback={<Typography>Loading...</Typography>}>
+        <TimezoneOffsetControllerInternal />
+      </Suspense>
+    </ErrorBoundary>
   );
 }

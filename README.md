@@ -8,7 +8,7 @@
 - [x] at least one modlet with comprehensive unit or integration tests
 - [x] creates a Design System using a 3rd party component library
 - [x] uses a future-proofed Context
-- [ ] data fetching with TanStack Query and Suspense
+- [x] data fetching with TanStack Query and Suspense
 
 ## Features
 
