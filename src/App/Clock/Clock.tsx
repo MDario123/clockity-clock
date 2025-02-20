@@ -1,7 +1,8 @@
-import { useOffsetContext } from "#shared/OffsetContext";
-import { Time } from "#shared/Time";
 import type { JSX } from "react";
 import { useEffect, useState } from "react";
+import { useOffsetContext } from "#shared/OffsetContext";
+import { Time } from "#shared/Time";
+import { Typography } from "@mui/material";
 
 export function Clock(): JSX.Element {
   const [currTime, setTime] = useState(Time.fromDate(new Date()));
@@ -22,10 +23,5 @@ export function Clock(): JSX.Element {
 
   const time = currTime.add(manualOffset).add(timezoneOffset);
 
-  return (
-    <div>
-      Current time:{" "}
-      {`${String(time.hour)}:${String(time.minute)}:${String(time.seconds)}`}
-    </div>
-  );
+  return <Typography variant="h1">{time.toLabel()}</Typography>;
 }
