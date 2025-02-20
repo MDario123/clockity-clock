@@ -28,12 +28,19 @@ export class Time {
     return new Time(hours, minutes, seconds);
   }
 
-  // Time add
   add(time: Time): Time {
     return new Time(
       this.hour + time.hour,
       this.minute + time.minute,
       this.seconds + time.seconds,
     );
+  }
+
+  toLabel(): string {
+    const hour = this.hour.toString().padStart(2, "0");
+    const minute = this.minute.toString().padStart(2, "0");
+    const seconds = this.seconds.toString().padStart(2, "0");
+
+    return `${hour}:${minute}:${seconds}`;
   }
 }
