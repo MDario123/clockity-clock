@@ -4,7 +4,7 @@
 
 - [x] good code standards, with eslint, prettier, and typechecking
 - [x] good code organization, with modlets
-- [ ] all modlets have smoke tests
+- [x] all modlets have smoke tests
 - [x] at least one modlet with comprehensive unit or integration tests
 - [x] creates a Design System using a 3rd party component library
 - [x] uses a future-proofed Context

@@ -13,6 +13,7 @@ describe("getTimeByTimezone", () => {
       hour: 17,
       minute: 3,
       seconds: 31,
+      dateTime: "2025-02-20T17:03:31.4363663",
     };
 
     // mock the fetch function
@@ -20,7 +21,6 @@ describe("getTimeByTimezone", () => {
       vi.fn(() =>
         Promise.resolve({
           json: () => Promise.resolve(mockTime),
-          headers: { get: () => "Wed,19 Feb 2025 16:03:31 GMT " },
         }),
       ) as unknown as typeof fetch,
     );
