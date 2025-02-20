@@ -6,15 +6,14 @@
 - [x] good code organization, with modlets
 - [ ] all modlets have smoke tests
 - [x] at least one modlet with comprehensive unit or integration tests
-- [ ] creates a Design System using a 3rd party component library
+- [x] creates a Design System using a 3rd party component library
 - [x] uses a future-proofed Context
 - [ ] data fetching with TanStack Query and Suspense
 
 ## Features
 
-- [ ] Clock
+- [x] Clock
   - [x] Display the current time as text
-  - [ ] Display the current time as an analog clock
 - [x] Offset context
   - [x] Base context
   - [x] Timezone offset controller:

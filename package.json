@@ -16,7 +16,8 @@
   },
   "imports": {
     "#shared/*": "./src/shared/*/index.ts",
-    "#design/*": "./src/design/*"
+    "#design/*": "./src/shared/design/*/index.ts",
+    "#design": "./src/shared/design/index.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
