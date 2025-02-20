@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import React from "react";
+import type React from "react";
 import { blue } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
@@ -28,7 +28,7 @@ const theme = createTheme({
 export function MyThemeProvider({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }>): JSX.Element {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }

@@ -27,7 +27,7 @@ const OffsetContext = createContext<ContextFull>({
 export function OffsetContextProvider({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }>): JSX.Element {
   const [contextData, setContextData] = useState<ContextData>({
     manualOffset: new Time(0, 0, 0),
