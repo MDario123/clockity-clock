@@ -32,12 +32,10 @@ function TimezoneOffsetControllerInternal(): JSX.Element {
     };
   }, [timezone, setTimezoneOffset]);
 
-  const { data } = useSuspenseQuery({
+  const { data: possibleTimezones } = useSuspenseQuery({
     queryKey: ["possibleTimezones"],
     queryFn: () => getPossibleTimezones().then((timezones) => timezones),
   });
-
-  const possibleTimezones = data ?? ["UTC"];
 
   return (
     <Box sx={{ minWidth: 200, maxWidth: 200 }}>
