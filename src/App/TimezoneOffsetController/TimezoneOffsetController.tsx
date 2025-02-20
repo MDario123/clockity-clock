@@ -23,7 +23,6 @@ function TimezoneOffsetControllerInternal(): JSX.Element {
           setTimezoneOffset(time);
         })
         .catch((error: unknown) => {
-          // TODO: Proper error handling should be implemented here
           console.error(error);
         });
     }, 10000);
