@@ -16,16 +16,14 @@ describe("getTimeByTimezone", () => {
     };
 
     // mock the fetch function
-    const f = vi
-      .spyOn(global, "fetch")
-      .mockImplementation(
-        vi.fn(() =>
-          Promise.resolve({ 
-            json: () => Promise.resolve(mockTime),
-            headers: { get: () => "Wed,19 Feb 2025 16:03:31 GMT " },
-          }),
-        ) as unknown as typeof fetch,
-      );
+    const f = vi.spyOn(global, "fetch").mockImplementation(
+      vi.fn(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(mockTime),
+          headers: { get: () => "Wed,19 Feb 2025 16:03:31 GMT " },
+        }),
+      ) as unknown as typeof fetch,
+    );
 
     const time = await getTimeOffsetByTimezone(timezone);
 

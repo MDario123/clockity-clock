@@ -36,5 +36,4 @@ describe("Time", () => {
     expect(result.minute).toBe(16);
     expect(result.seconds).toBe(0);
   });
-
 });

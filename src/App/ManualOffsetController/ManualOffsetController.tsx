@@ -1,4 +1,6 @@
 import type { JSX } from "react";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 import { useOffsetContext } from "#shared/OffsetContext";
 import { Time } from "#shared/Time";
 
@@ -11,12 +13,16 @@ export function ManualOffsetController(): JSX.Element {
 
   const handleDecrease = () => {
     setManualOffset(manualOffset.add(new Time(0, 0, -5)));
-  }
+  };
 
   return (
-    <div>
-      <button onClick={handleDecrease}>Decrease</button>
-      <button onClick={handleIncrease}>Increase</button>
-    </div>
+    <Stack spacing={2} direction="row">
+      <Button variant="outlined" onClick={handleDecrease}>
+        Decrease
+      </Button>
+      <Button variant="outlined" onClick={handleIncrease}>
+        Increase
+      </Button>
+    </Stack>
   );
 }

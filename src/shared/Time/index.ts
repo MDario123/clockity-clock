@@ -33,7 +33,7 @@ export class Time {
     return new Time(
       this.hour + time.hour,
       this.minute + time.minute,
-      this.seconds + time.seconds
+      this.seconds + time.seconds,
     );
   }
 }

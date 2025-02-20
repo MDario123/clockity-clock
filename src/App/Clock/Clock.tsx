@@ -22,5 +22,10 @@ export function Clock(): JSX.Element {
 
   const time = currTime.add(manualOffset).add(timezoneOffset);
 
-  return <div>Current time: {`${time.hour}:${time.minute}:${time.seconds}`}</div>;
+  return (
+    <div>
+      Current time:{" "}
+      {`${String(time.hour)}:${String(time.minute)}:${String(time.seconds)}`}
+    </div>
+  );
 }
